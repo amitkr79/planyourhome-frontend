@@ -1,0 +1,13 @@
+export { default as Brands } from "./Brands";
+export { default as AboutUs } from "./AboutUs";
+export { default as Categories } from "./Categories";
+export { default as Counter } from "./Counter";
+export { default as CTA } from "./CTA";
+export { default as Pagination } from "./Pagination";
+export { default as Projects } from "./Projects";
+export { default as Services } from "./Services";
+export { default as SocialIcons } from "./SocialIcons";
+export { default as Team } from "./Team";
+export { default as Testimonial } from "./Testimonial";
+export { default as TopRated } from "./TopRated";
+export { default as WhatWeDo } from "./WhatWeDo";

@@ -1,0 +1,107 @@
+/* Images container layout */
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+/* Default: 4 per row */
+.image {
+  position: relative;
+  width: 25%;
+  height: 80%;
+  aspect-ratio: 4 / 3;
+  scroll-snap-align: start;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  opacity: 0.7; /* Default low opacity */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Zoom and opacity effect on hover */
+.image:hover {
+  opacity: 1; /* Full opacity on hover */
+  z-index: 1; /* Bring hovered item to front */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image:hover img {
+  transform: scale(1.1);
+}
+
+/* Title and label styling - initially more transparent */
+.image-title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  opacity: 0.8; /* Slightly transparent by default */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 0.5rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  opacity: 0.8; /* Slightly transparent by default */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Full opacity for text on hover */
+.image:hover .image-title,
+.image:hover .image-label {
+  opacity: 1;
+}
+
+/* Overlay effect - now using opacity instead of background */
+.image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* Visible overlay by default */
+  transition: background 0.3s ease-in-out;
+}
+
+.image:hover::before {
+  background: rgba(0, 0, 0, 0.15); /* Lighter overlay on hover */
+}
+
+/* Medium screens: 2 per row */
+@media (max-width: 1024px) {
+  .image {
+    width: 50%;
+  }
+}
+
+/* Small screens: 1 per row */
+@media (max-width: 640px) {
+  .image {
+    width: 100%;
+    opacity: 0.9; /* Slightly more visible on mobile */
+  }
+
+  .image-title {
+    font-size: 1rem;
+  }
+
+  .image-label {
+    font-size: 0.6rem;
+  }
+}
